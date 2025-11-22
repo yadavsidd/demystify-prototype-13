@@ -1,6 +1,6 @@
 
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface Particle {
@@ -33,7 +33,6 @@ export const SparklesCore = (props: {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [particles, setParticles] = useState<Particle[]>([]);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -45,7 +44,6 @@ export const SparklesCore = (props: {
         const { width, height } = canvas.parentElement?.getBoundingClientRect() || { width: window.innerWidth, height: window.innerHeight };
         canvas.width = width;
         canvas.height = height;
-        setDimensions({ width, height });
         initParticles(width, height);
       };
 

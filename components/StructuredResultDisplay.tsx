@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import type { Chat } from '@google/genai';
-import type { AnalysisResult, KeyDate, RedFlagClause, ActionableNextStep, JargonTerm, AnalysisHistoryItem, Message } from '../types';
+import type { AnalysisResult, KeyDate, RedFlagClause, AnalysisHistoryItem, Message } from '../types';
 import { suggestClauseRewrite, translateBreakdown, generateRebuttalEmail } from '../services/geminiService';
-import { DateIcon, NextStepIcon, RedFlagIcon, GaugeIcon, TrendingUpIcon, SparklesIcon, LightbulbIcon, DocumentIcon, ChatBubbleIcon, DrafterIcon, DownloadIcon, SendIcon, UsersIcon } from './icons';
+import { DateIcon, NextStepIcon, RedFlagIcon, SparklesIcon, LightbulbIcon, DocumentIcon, ChatBubbleIcon, DownloadIcon, SendIcon, UsersIcon } from './icons';
 import CopyButton from './CopyButton';
 import ScoreGauge from './ScoreGauge';
 import LoadingSpinner from './LoadingSpinner';

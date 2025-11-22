@@ -10,7 +10,6 @@ import AnalysisLoader from '../components/AnalysisLoader';
 import StructuredResultDisplay from '../components/StructuredResultDisplay';
 import { CornerBorderContainer } from '@/components/ui/corner-border-container';
 import { GradientButton } from '@/components/ui/GradientButton';
-import { MagicButton } from '@/components/ui/magic-button';
 
 const readFileAsBase64 = (file: File): Promise<string> => {
   return new Promise((resolve, reject) => {

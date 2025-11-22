@@ -13,7 +13,6 @@ interface GlowingEffectProps {
   glow?: boolean;
   className?: string;
   disabled?: boolean;
-  movementDuration?: number;
   borderWidth?: number;
 }
 
@@ -25,13 +24,11 @@ export const GlowingEffect = ({
   variant = "default",
   glow = false,
   className,
-  movementDuration = 2,
   borderWidth = 1,
   disabled = false,
 }: GlowingEffectProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const lastPosition = useRef({ x: 0, y: 0 });
-  const animationFrameRef = useRef<number>(0);
 
   const handleMove = useCallback(
     (e?: MouseEvent | { x: number; y: number }) => {
