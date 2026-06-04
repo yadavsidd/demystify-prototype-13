@@ -1,0 +1,7 @@
+{
+  "name": "Demystify",
+  "description": "Demystify is an AI-powered tool that simplifies complex legal documents. Upload your text to get a clear, easy-to-understand explanation of your rights, obligations, and potential risks.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

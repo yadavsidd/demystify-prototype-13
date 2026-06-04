@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demystify - AI Legal Document Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --bg-color: #000000;
+        --text-color: #E5E7EB; /* Gray 200 */
+        --grid-color: rgba(255, 255, 255, 0.1);
+        --accent-color: #ffffff; /* White */
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      /* Autofill override */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:focus, 
+      input:-webkit-autofill:active{
+          -webkit-box-shadow: 0 0 0 30px #111 inset !important;
+          -webkit-text-fill-color: white !important;
+          transition: background-color 5000s ease-in-out 0s;
+      }
+
+      .font-heading {
+        font-family: 'Chakra Petch', sans-serif;
+      }
+      
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slide-and-fade-in 0.6s ease-out forwards;
+      }
+      
+      @keyframes pulse-mic {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+      .animate-pulse-mic {
+        animation: pulse-mic 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      @keyframes slide-and-fade-in {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .highlight {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 3px;
+        padding: 1px 3px;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+
+      @keyframes dynamic-text-anim {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        20% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        80% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+      .animate-dynamic-text {
+        animation: dynamic-text-anim 3s ease-out forwards;
+      }
+
+      /* Gradient Button Styles */
+      .gradient-button {
+        background: var(--accent-color);
+        color: black;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+      
+      .gradient-button:hover {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        transform: translateY(-1px);
+      }
+      
+      .gradient-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.5s;
+        z-index: -1;
+      }
+      
+      .gradient-button:hover::before {
+        transform: translateX(100%);
+      }
+
+      .gradient-button-variant {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+      
+      .gradient-button-variant:hover {
+        border-color: var(--accent-color);
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--accent-color);
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.84.0",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "tailwind-merge": "https://aistudiocdn.com/tailwind-merge@^3.4.0",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "cors": "https://aistudiocdn.com/cors@^2.8.5",
+    "react-dropzone": "https://aistudiocdn.com/react-dropzone@^14.3.8",
+    "express": "https://aistudiocdn.com/express@^5.1.0",
+    "@tabler/icons-react": "https://aistudiocdn.com/@tabler/icons-react@^3.35.0",
+    "class-variance-authority": "https://aistudiocdn.com/class-variance-authority@^0.7.1",
+    "@radix-ui/react-slot": "https://aistudiocdn.com/@radix-ui/react-slot@^1.2.4",
+    "dotenv": "https://aistudiocdn.com/dotenv@^17.2.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
