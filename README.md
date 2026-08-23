@@ -144,6 +144,4 @@ This project is configured for zero-hassle deployment on **Vercel**.
 
 This project was brought to you by **Team 404 Raita Not Found**.
 1.  Siddhant Yadav
-2.  Hitesh Chandwani
-3.  Rudraksh Moonga
-4.  Linsha Bansal
+2.  Khushal Agarwal
